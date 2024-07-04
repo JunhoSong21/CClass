@@ -12,8 +12,17 @@
     <Filter Include="Game">
       <UniqueIdentifier>{820269c4-6859-441d-8d3a-2ef4ef977b8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Core">
+    <Filter Include="Game\0. Core">
       <UniqueIdentifier>{aea5029a-9482-482d-b392-4567d4347a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\1. Object">
+      <UniqueIdentifier>{8699d2be-a3ae-4226-8aea-80fbcca0c4a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\2. Manager">
+      <UniqueIdentifier>{779e6180-1a05-4439-95ee-b40d4d52ae14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\2. Manager\Time">
+      <UniqueIdentifier>{40ca4b6c-3ea0-4337-82bf-0e412050a016}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -26,11 +35,11 @@
     <ClInclude Include="Resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="WindowsProject1.h">
+    <ClInclude Include="CClass.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CCore.h">
-      <Filter>Game\Core</Filter>
+      <Filter>Game\0. Core</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>헤더 파일</Filter>
@@ -38,13 +47,28 @@
     <ClInclude Include="define.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CObject.h">
+      <Filter>Game\1. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeMgr.h">
+      <Filter>Game\2. Manager\Time</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
-      <Filter>Game\Core</Filter>
+      <Filter>Game\0. Core</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CObject.cpp">
+      <Filter>Game\1. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeMgr.cpp">
+      <Filter>Game\2. Manager\Time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

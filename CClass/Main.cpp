@@ -1,16 +1,15 @@
 ﻿#include "pch.h"
 #include "framework.h"
-#include "WindowsProject1.h"
+#include "CClass.h"
 
-POINT ptLT;
-POINT ptRB;
-bool act = false;
+#include "CCore.h"
 
 #define MAX_LOADSTRING 100
 
 HINSTANCE hInst;
 WCHAR szTitle[MAX_LOADSTRING];
 WCHAR szWindowClass[MAX_LOADSTRING];
+HWND hWnd;
 
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
@@ -33,10 +32,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
     LoadStringW(hInstance, IDC_WINDOWSPROJECT1, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance); // 윈도우 정보 등록
 
-    if (!InitInstance (hInstance, nCmdShow))
-    {
+    if (!InitInstance (hInstance, nCmdShow)) {
         return FALSE;
     } // 창을 만드는 작업을 수행
+
+    if (FAILED(CCore::Instance()->Init(hWnd, POINT{ 1200, 768 }))) {
+        MessageBox(nullptr, L"Core 객체 초기화 실패", L"Error", MB_OK);
+        return FALSE;
+    }
 
     // 단축키 입력 여부를 검사
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINDOWSPROJECT1));
@@ -55,7 +58,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
             }
         }
         else {
-            // 게임 진행
+            CCore::Instance()->Progress();
         }
     }
 
