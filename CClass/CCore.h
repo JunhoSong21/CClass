@@ -7,6 +7,9 @@ private:
 	POINT	ptResolution;
 	HDC		hDC;
 
+	HBITMAP hBit; // 더블 버퍼링 사용을 위한 선언
+	HDC		mDC;  //
+
 	void Update();
 	void Render();
 

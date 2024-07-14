@@ -24,6 +24,9 @@
     <Filter Include="Game\2. Manager\Time">
       <UniqueIdentifier>{40ca4b6c-3ea0-4337-82bf-0e412050a016}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\2. Manager\Key">
+      <UniqueIdentifier>{82c82f73-893a-47fa-bf6c-da11df884afc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -56,6 +59,9 @@
     <ClInclude Include="CTimeMgr.h">
       <Filter>Game\2. Manager\Time</Filter>
     </ClInclude>
+    <ClInclude Include="CKeyMgr.h">
+      <Filter>Game\2. Manager\Key</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -69,6 +75,9 @@
     </ClCompile>
     <ClCompile Include="CTimeMgr.cpp">
       <Filter>Game\2. Manager\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="CKeyMgr.cpp">
+      <Filter>Game\2. Manager\Key</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
