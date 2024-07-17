@@ -27,6 +27,15 @@
     <Filter Include="Game\2. Manager\Key">
       <UniqueIdentifier>{82c82f73-893a-47fa-bf6c-da11df884afc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\2. Manager\Scene">
+      <UniqueIdentifier>{3f7f1037-0e75-4666-908f-7c08ef7716d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\3. Scene">
+      <UniqueIdentifier>{2ff9671b-226d-44e6-8d92-e62d6b4d9b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\3. Scene\Scene_Start">
+      <UniqueIdentifier>{68bd10ff-46a6-4eac-aabe-4214390918eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -62,6 +71,15 @@
     <ClInclude Include="CKeyMgr.h">
       <Filter>Game\2. Manager\Key</Filter>
     </ClInclude>
+    <ClInclude Include="CSceneMgr.h">
+      <Filter>Game\2. Manager\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>Game\3. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Start.h">
+      <Filter>Game\3. Scene\Scene_Start</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -78,6 +96,15 @@
     </ClCompile>
     <ClCompile Include="CKeyMgr.cpp">
       <Filter>Game\2. Manager\Key</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneMgr.cpp">
+      <Filter>Game\2. Manager\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>Game\3. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Start.cpp">
+      <Filter>Game\3. Scene\Scene_Start</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

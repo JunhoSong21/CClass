@@ -33,5 +33,43 @@ void CKeyMgr::Init() {
 }
 
 void CKeyMgr::Update() {
+	// 윈도우 포커싱
+	HWND hWnd = GetFocus();
+	
+	// O 
+	if (nullptr != hWnd) {
+		// 키를 누르고 있는가?
+		for (int i = 0; i < (int)KEY::LAST; ++i) {
+			if (GetAsyncKeyState(arrVK[i]) & 0x8000) {
+				if (vecKey[i].Prev) {
+					vecKey[i].State = KEY_TYPE::HOLD;
+				}
+				else {
+					vecKey[i].State = KEY_TYPE::TAP;
+				}
+				vecKey[i].Prev = true;
+			}
+			else {
+				if (vecKey[i].Prev) {
+					vecKey[i].State = KEY_TYPE::AWAY;
+				}
+				else {
+					vecKey[i].State = KEY_TYPE::NONE;
+				}
+				vecKey[i].Prev = false;
+			}
+		}
+	}
 
+	// X
+	else {
+		for (int i = 0; i < (int)KEY::LAST; ++i) {
+			vecKey[i].Prev = false;
+			if (KEY_TYPE::TAP == vecKey[i].State || KEY_TYPE::HOLD == vecKey[i].State) {
+				vecKey[i].State = KEY_TYPE::AWAY;
+			}
+			else if (KEY_TYPE::AWAY == vecKey[i].State)
+				vecKey[i].State = KEY_TYPE::NONE;
+		}
+	}
 }

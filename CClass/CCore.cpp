@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CCore.h"
 
+#include "CKeyMgr.h"
 #include "CTimeMgr.h"
 
 #include "CObject.h"
@@ -24,19 +25,30 @@ CCore::~CCore() {
 }
 
 void CCore::Update() {
+	CTimeMgr::Instance()->Update();
+	CKeyMgr::Instance()->Update();
+
 	Vec2 vPos = obj.GetPos();
 
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
+	if (CKeyMgr::Instance()->GetKeyState(KEY::LEFT) == KEY_TYPE::HOLD) {
 		vPos.x -= 200.f * fDT;
 	}
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
+	if (CKeyMgr::Instance()->GetKeyState(KEY::RIGHT) == KEY_TYPE::HOLD) {
 		vPos.x += 200.f * fDT;
+	}
+	if (CKeyMgr::Instance()->GetKeyState(KEY::UP) == KEY_TYPE::HOLD) {
+		vPos.y -= 200.f * fDT;
+	}
+	if (CKeyMgr::Instance()->GetKeyState(KEY::DOWN) == KEY_TYPE::HOLD) {
+		vPos.y += 200.f * fDT;
 	}
 
 	obj.SetPos(vPos);
 }
 
 void CCore::Render() {
+	CTimeMgr::Instance()->Render();
+
 	Rectangle(mDC, -1, -1, ptResolution.x + 1, ptResolution.y + 1);
 
 	Vec2 vPos = obj.GetPos();
@@ -72,14 +84,12 @@ int CCore::Init(HWND _handle, POINT _pt) {
 	obj.SetScale(Vec2(100, 100));
 
 	CTimeMgr::Instance()->Init();
+	CKeyMgr::Instance()->Init();
 
 	return S_OK;
 }
 
 void CCore::Progress() {
-	CTimeMgr::Instance()->Update();
-	CTimeMgr::Instance()->Render();
-
 	Update();
 	Render();
 }
